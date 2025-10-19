@@ -21,7 +21,7 @@
                 <li><strong>Student's turn:</strong> Choose to skip or add 1</li>
                 <li><strong>Teacher's turn:</strong> Multiply the current number by 2</li>
             </ul>
-            <p>The goal is to reach a target number exactly—this is success! This can happen on either player's turn. If you go past the target, simply start over. There's no failure, just keep trying until you reach the target.</p>
+            <p>The goal is to reach a target number exactly—this is success! This can happen on either player's turn. If you go past the target, start over from 0 and try again.</p>
         </section>
 
         <section>
@@ -33,7 +33,21 @@
             <h2>Examples</h2>
 
             <div class="example">
-                <div class="example-title">Example 1: Reaching 10</div>
+                <div class="example-title">Example 1: Failing to reach 10</div>
+                <ul class="steps">
+                    <li>Start:            0</li>
+                    <li>Student adds 1:   1</li>
+                    <li>Teacher × 2:      2</li>
+                    <li>Student adds 1:   3</li>
+                    <li>Teacher × 2:      6</li>
+                    <li>Student adds 1:   7</li>
+                    <li>Teacher × 2:     14 — went past 10!</li>
+                </ul>
+                <p><em>Start over from 0 and try again.</em></p>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Example 2: Reaching 10</div>
                 <ul class="steps">
                     <li>Start:            0</li>
                     <li>Student adds 1:   1</li>
@@ -46,7 +60,7 @@
             </div>
 
             <div class="example">
-                <div class="example-title">Example 2: Reaching 7</div>
+                <div class="example-title">Example 3: Reaching 7</div>
                 <ul class="steps">
                     <li>Start:            0</li>
                     <li>Student adds 1:   1</li>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers (Snakes & Ladders Style Game) - Math Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Prime Numbers (Snakes & Ladders Style Game)</h1>
+    </header>
+
+    <a href="index.html" class="back-link">← Back to games</a>
+
+    <main>
+        <section>
+            <h2>How to Play</h2>
+            <p>The teacher proposes a starting number (for example, 5). Players take turns:</p>
+            <ul>
+                <li><strong>Student's turn:</strong> Add any number from 1 to 9</li>
+                <li><strong>Teacher's turn:</strong> Divide by any number that divides evenly (except by 1 or the number itself), or pass if no such divisor exists</li>
+            </ul>
+            <p>The student succeeds when they reach or surpass the target number (for example, 50).</p>
+        </section>
+
+        <section>
+            <h2>What to Expect</h2>
+            <p>The student will quickly learn that certain numbers are "safe" while others allow the teacher to divide. Landing on safe numbers lets the student make steady progress.</p>
+            <p>Helpful tip: The student should write down numbers from 1 to the target and cross off the ones they want to avoid. Through experimentation, they'll discover that some numbers like 2, 3, 5, 7, 11, 13 cannot be divided (they're safe!), while others like 4, 6, 8, 9, 10, 12 can be divided and should be avoided.</p>
+        </section>
+
+        <section>
+            <h2>Examples</h2>
+
+            <div class="example">
+                <div class="example-title">Example: Reaching 20 (starting from 5)</div>
+                <ul class="steps">
+                    <li>Start:            5</li>
+                    <li>Student adds 3:   8 — divisible by 2 and 4</li>
+                    <li>Teacher ÷ 4:      2</li>
+                    <li>Student adds 1:   3 — safe!</li>
+                    <li>Teacher passes:   3</li>
+                    <li>Student adds 2:   5 — safe!</li>
+                    <li>Teacher passes:   5</li>
+                    <li>Student adds 2:   7 — safe!</li>
+                    <li>Teacher passes:   7</li>
+                    <li>Student adds 4:  11 — safe!</li>
+                    <li>Teacher passes:  11</li>
+                    <li>Student adds 2:  13 — safe!</li>
+                    <li>Teacher passes:  13</li>
+                    <li>Student adds 4:  17 — safe!</li>
+                    <li>Teacher passes:  17</li>
+                    <li>Student adds 2:  19 — safe!</li>
+                    <li>Teacher passes:  19</li>
+                    <li>Student adds 4:  23 ✓</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Math Behind It</h2>
+            <div class="concept">
+                <p>This game teaches <strong>prime numbers</strong>. Prime numbers can only be divided by 1 and themselves, making them the "safe" numbers in this game.</p>
+
+                <p>The "snakes and ladders" aspect comes from the ups and downs of play: adding numbers moves you toward the goal, while landing on composite numbers (non-primes) brings you back down.</p>
+
+                <p>Through repeated play, students discover which numbers are prime by observing which ones cannot be divided. This hands-on approach helps build intuition about primes without memorization.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Variation</h2>
+            <div class="concept">
+                <p>For a simpler version, try <a href="evens-odds.html">Evens & Odds (Snakes & Ladders Style Game)</a>, where the teacher can only divide by 2. This teaches even and odd numbers and is a good introduction before tackling prime numbers.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Adolfo Rodriguez, 2025</p>
+    </footer>
+</body>
+</html>
