@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Doubling Game - Math Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>The Doubling Game</h1>
+    </header>
+
+    <a href="index.html" class="back-link">← Back to games</a>
+
+    <main>
+        <section>
+            <h2>How to Play</h2>
+            <p>Start with the number 0 (zero). Players take turns:</p>
+            <ul>
+                <li><strong>Student's turn:</strong> Choose to skip or add 1</li>
+                <li><strong>Teacher's turn:</strong> Multiply the current number by 2</li>
+            </ul>
+            <p>The goal is to reach a target number exactly—this is success! This can happen on either player's turn. If you go past the target, simply start over. There's no failure, just keep trying until you reach the target.</p>
+        </section>
+
+        <section>
+            <h2>What to Expect</h2>
+            <p>The student may not reach the target on the first try, or the second, or even the third—but they will eventually succeed. Start with 10 as your first target. Once reached, try other numbers: 11, 15, 20, 100, or any number you like. As the student plays more, they may discover strategies to reach targets more quickly.</p>
+        </section>
+
+        <section>
+            <h2>Examples</h2>
+
+            <div class="example">
+                <div class="example-title">Example 1: Reaching 10</div>
+                <ul class="steps">
+                    <li>Start:            0</li>
+                    <li>Student adds 1:   1</li>
+                    <li>Teacher × 2:      2</li>
+                    <li>Student skips:    2</li>
+                    <li>Teacher × 2:      4</li>
+                    <li>Student adds 1:   5</li>
+                    <li>Teacher × 2:     10 ✓</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Example 2: Reaching 7</div>
+                <ul class="steps">
+                    <li>Start:            0</li>
+                    <li>Student adds 1:   1</li>
+                    <li>Teacher × 2:      2</li>
+                    <li>Student adds 1:   3</li>
+                    <li>Teacher × 2:      6</li>
+                    <li>Student adds 1:   7 ✓</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Example 3: Reaching 12</div>
+                <ul class="steps">
+                    <li>Start:            0</li>
+                    <li>Student skips:    0</li>
+                    <li>Teacher × 2:      0</li>
+                    <li>Student adds 1:   1</li>
+                    <li>Teacher × 2:      2</li>
+                    <li>Student adds 1:   3</li>
+                    <li>Teacher × 2:      6</li>
+                    <li>Student skips:    6</li>
+                    <li>Teacher × 2:     12 ✓</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>The Math Behind It</h2>
+            <div class="concept">
+                <p>This game teaches <strong>binary representation</strong>. The student's choices form a pattern: each "add 1" is a <strong>1</strong> and each "skip" is a <strong>0</strong>.</p>
+
+                <p>For example, to reach 10:</p>
+                <ul class="steps">
+                    <li>Student: add 1, skip, add 1  →  1 0 1</li>
+                    <li>In binary: 101 = 10 in decimal</li>
+                </ul>
+
+                <p>This means there is exactly <strong>one way</strong> to reach each target number. The student's choices represent that number in binary, the fundamental number system used in computing.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Adolfo Rodriguez, 2025</p>
+    </footer>
+</body>
+</html>
