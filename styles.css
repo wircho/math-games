@@ -196,6 +196,34 @@ footer {
     margin-left: 0.3rem;
 }
 
+.cheat-sheet {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.cheat-sheet span {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.good-number {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.bad-number {
+    background-color: #f8d7da;
+    color: #721c24;
+    text-decoration: line-through;
+}
+
 /* Interactive Game Styles */
 details {
     margin: 1.5rem 0;
