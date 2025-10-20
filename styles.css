@@ -193,6 +193,28 @@ footer {
 }
 
 /* Interactive Game Styles */
+details {
+    margin: 1.5rem 0;
+}
+
+summary {
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-weight: 600;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+summary:hover {
+    background-color: #e0e0e0;
+}
+
+details[open] summary {
+    margin-bottom: 1rem;
+}
+
 .interactive-game {
     background-color: #fff;
     padding: 2rem;

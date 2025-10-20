@@ -26,33 +26,37 @@
 
         <section>
             <h2>Play It Online</h2>
+            <p>While this interactive version lets you practice the game, these games are most valuable when played with a teacher or parent. The guidance, encouragement, and mathematical discussion that happens during play cannot be replaced by a screen.</p>
             <noscript>
                 <p style="color: #dc3545; font-weight: 600;">JavaScript is required to play this interactive game.</p>
             </noscript>
-            <div id="game-container">
-                <div class="interactive-game">
-                    <div class="game-info">
-                        <div class="target-display">
-                            Target: <span id="target-number">10</span>
-                            <div class="dice-buttons">
-                                <button id="dice-1-100" class="dice-btn">🎲 1-100</button>
-                                <button id="dice-101-1000" class="dice-btn">🎲 101-1000</button>
+            <details>
+                <summary>Interactive Version</summary>
+                <div id="game-container">
+                    <div class="interactive-game">
+                        <div class="game-info">
+                            <div class="target-display">
+                                Target: <span id="target-number">10</span>
+                                <div class="dice-buttons">
+                                    <button id="dice-1-100" class="dice-btn">🎲 1-100</button>
+                                    <button id="dice-101-1000" class="dice-btn">🎲 101-1000</button>
+                                </div>
                             </div>
+                            <div class="turn-display" id="turn-display">Student's turn</div>
                         </div>
-                        <div class="turn-display" id="turn-display">Student's turn</div>
+
+                        <div id="current-number" class="circle interactive">0</div>
+
+                        <div id="game-controls" class="game-controls">
+                            <button id="add-btn" class="game-btn student-btn">Add 1</button>
+                            <button id="skip-btn" class="game-btn student-btn">Skip</button>
+                            <button id="multiply-btn" class="game-btn teacher-btn" style="display: none;">× 2</button>
+                        </div>
+
+                        <button id="restart-btn" class="game-btn restart-btn" style="display: none;">Restart</button>
                     </div>
-
-                    <div id="current-number" class="circle interactive">0</div>
-
-                    <div id="game-controls" class="game-controls">
-                        <button id="add-btn" class="game-btn student-btn">Add 1</button>
-                        <button id="skip-btn" class="game-btn student-btn">Skip</button>
-                        <button id="multiply-btn" class="game-btn teacher-btn" style="display: none;">× 2</button>
-                    </div>
-
-                    <button id="restart-btn" class="game-btn restart-btn" style="display: none;">Restart</button>
                 </div>
-            </div>
+            </details>
         </section>
 
         <section>
@@ -214,6 +218,7 @@
         const skipBtn = document.getElementById('skip-btn');
         const multiplyBtn = document.getElementById('multiply-btn');
         const restartBtn = document.getElementById('restart-btn');
+        const gameControls = document.getElementById('game-controls');
         const dice1_100Btn = document.getElementById('dice-1-100');
         const dice101_1000Btn = document.getElementById('dice-101-1000');
 
@@ -222,18 +227,18 @@
             targetNumberEl.textContent = targetNumber;
 
             if (gameEnded) {
-                addBtn.style.display = 'none';
-                skipBtn.style.display = 'none';
-                multiplyBtn.style.display = 'none';
+                gameControls.style.display = 'none';
                 restartBtn.style.display = 'block';
             } else if (isStudentTurn) {
                 turnDisplayEl.textContent = "Student's turn";
+                gameControls.style.display = 'flex';
                 addBtn.style.display = 'inline-block';
                 skipBtn.style.display = 'inline-block';
                 multiplyBtn.style.display = 'none';
                 restartBtn.style.display = 'none';
             } else {
                 turnDisplayEl.textContent = "Teacher's turn";
+                gameControls.style.display = 'flex';
                 addBtn.style.display = 'none';
                 skipBtn.style.display = 'none';
                 multiplyBtn.style.display = 'inline-block';
