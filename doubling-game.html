@@ -15,13 +15,38 @@
 
     <main>
         <section>
-            <h2>How to Play</h2>
+            <h2>How To Play</h2>
             <p>Start with the number 0 (zero). Players take turns:</p>
             <ul>
                 <li><strong>Student's turn:</strong> Choose to skip or add 1</li>
                 <li><strong>Teacher's turn:</strong> Multiply the current number by 2</li>
             </ul>
             <p>The goal is to reach a target number exactly—this is success! This can happen on either player's turn. If you go past the target, start over from 0 and try again.</p>
+        </section>
+
+        <section>
+            <h2>Play It Online</h2>
+            <noscript>
+                <p style="color: #dc3545; font-weight: 600;">JavaScript is required to play this interactive game.</p>
+            </noscript>
+            <div id="game-container">
+                <div class="interactive-game">
+                    <div class="game-info">
+                        <div class="target-display">Target: <span id="target-number">10</span></div>
+                        <div class="turn-display" id="turn-display">Student's turn</div>
+                    </div>
+
+                    <div id="current-number" class="circle interactive">0</div>
+
+                    <div id="game-controls" class="game-controls">
+                        <button id="add-btn" class="game-btn student-btn">Add 1</button>
+                        <button id="skip-btn" class="game-btn student-btn">Skip</button>
+                        <button id="multiply-btn" class="game-btn teacher-btn" style="display: none;">× 2</button>
+                    </div>
+
+                    <button id="restart-btn" class="game-btn restart-btn" style="display: none;">Restart</button>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -127,7 +152,7 @@
         </section>
 
         <section>
-            <h2>What to Expect</h2>
+            <h2>What To Expect</h2>
             <p>The student may not reach the target on the first try, or the second, or even the third—but they will eventually succeed. Start with 10 as your first target. Once reached, try other numbers: 11, 15, 20, 100, or any number you like. As the student plays more, they may discover strategies to reach targets more quickly.</p>
         </section>
 
@@ -169,5 +194,91 @@
     <footer>
         <p>Adolfo Rodriguez, 2025</p>
     </footer>
+
+    <script>
+        let currentNumber = 0;
+        let targetNumber = 10;
+        let isStudentTurn = true;
+        let gameEnded = false;
+
+        const currentNumberEl = document.getElementById('current-number');
+        const targetNumberEl = document.getElementById('target-number');
+        const turnDisplayEl = document.getElementById('turn-display');
+        const addBtn = document.getElementById('add-btn');
+        const skipBtn = document.getElementById('skip-btn');
+        const multiplyBtn = document.getElementById('multiply-btn');
+        const restartBtn = document.getElementById('restart-btn');
+
+        function updateDisplay() {
+            currentNumberEl.textContent = currentNumber;
+
+            if (gameEnded) {
+                addBtn.style.display = 'none';
+                skipBtn.style.display = 'none';
+                multiplyBtn.style.display = 'none';
+                restartBtn.style.display = 'block';
+            } else if (isStudentTurn) {
+                turnDisplayEl.textContent = "Student's turn";
+                addBtn.style.display = 'inline-block';
+                skipBtn.style.display = 'inline-block';
+                multiplyBtn.style.display = 'none';
+                restartBtn.style.display = 'none';
+            } else {
+                turnDisplayEl.textContent = "Teacher's turn";
+                addBtn.style.display = 'none';
+                skipBtn.style.display = 'none';
+                multiplyBtn.style.display = 'inline-block';
+                restartBtn.style.display = 'none';
+            }
+        }
+
+        function checkWinLose() {
+            if (currentNumber === targetNumber) {
+                currentNumberEl.classList.add('success');
+                currentNumberEl.classList.remove('failure');
+                turnDisplayEl.textContent = 'Success!';
+                gameEnded = true;
+                updateDisplay();
+            } else if (currentNumber > targetNumber) {
+                currentNumberEl.classList.add('failure');
+                currentNumberEl.classList.remove('success');
+                turnDisplayEl.textContent = 'Over target - try again!';
+                gameEnded = true;
+                updateDisplay();
+            }
+        }
+
+        addBtn.addEventListener('click', () => {
+            if (gameEnded || !isStudentTurn) return;
+            currentNumber += 1;
+            isStudentTurn = false;
+            updateDisplay();
+            checkWinLose();
+        });
+
+        skipBtn.addEventListener('click', () => {
+            if (gameEnded || !isStudentTurn) return;
+            isStudentTurn = false;
+            updateDisplay();
+        });
+
+        multiplyBtn.addEventListener('click', () => {
+            if (gameEnded || isStudentTurn) return;
+            currentNumber *= 2;
+            isStudentTurn = true;
+            updateDisplay();
+            checkWinLose();
+        });
+
+        restartBtn.addEventListener('click', () => {
+            currentNumber = 0;
+            isStudentTurn = true;
+            gameEnded = false;
+            currentNumberEl.classList.remove('success', 'failure');
+            updateDisplay();
+        });
+
+        updateDisplay();
+    </script>
 </body>
 </html>

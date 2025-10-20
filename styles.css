@@ -191,3 +191,91 @@ footer {
     font-family: "Courier New", monospace;
     margin-left: 0.3rem;
 }
+
+/* Interactive Game Styles */
+.interactive-game {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    border: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.target-display {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.turn-display {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.circle.interactive {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+}
+
+.game-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.student-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.student-btn:hover {
+    background-color: #0056b3;
+}
+
+.teacher-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.teacher-btn:hover {
+    background-color: #545b62;
+}
+
+.restart-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.restart-btn:hover {
+    background-color: #218838;
+}
+
+.game-btn:active {
+    transform: scale(0.95);
+}
