@@ -127,3 +127,67 @@ footer {
 .back-link:hover {
     color: #333;
 }
+
+.game-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 1.5rem 0;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+}
+
+.circle.success {
+    background-color: #28a745;
+}
+
+.circle.failure {
+    background-color: #dc3545;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: #333;
+    line-height: 1;
+}
+
+.step-action {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin: 0.2rem 0;
+}
+
+.step-action.teacher-divide {
+    color: #c82333;
+    font-weight: 600;
+}
+
+.step-action.teacher-pass {
+    color: #218838;
+    font-weight: 600;
+}
+
+.binary-digit {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+    margin-left: 0.3rem;
+}
