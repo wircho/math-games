@@ -32,7 +32,13 @@
             <div id="game-container">
                 <div class="interactive-game">
                     <div class="game-info">
-                        <div class="target-display">Target: <span id="target-number">10</span></div>
+                        <div class="target-display">
+                            Target: <span id="target-number">10</span>
+                            <div class="dice-buttons">
+                                <button id="dice-1-100" class="dice-btn">🎲 1-100</button>
+                                <button id="dice-101-1000" class="dice-btn">🎲 101-1000</button>
+                            </div>
+                        </div>
                         <div class="turn-display" id="turn-display">Student's turn</div>
                     </div>
 
@@ -208,9 +214,12 @@
         const skipBtn = document.getElementById('skip-btn');
         const multiplyBtn = document.getElementById('multiply-btn');
         const restartBtn = document.getElementById('restart-btn');
+        const dice1_100Btn = document.getElementById('dice-1-100');
+        const dice101_1000Btn = document.getElementById('dice-101-1000');
 
         function updateDisplay() {
             currentNumberEl.textContent = currentNumber;
+            targetNumberEl.textContent = targetNumber;
 
             if (gameEnded) {
                 addBtn.style.display = 'none';
@@ -276,6 +285,23 @@
             gameEnded = false;
             currentNumberEl.classList.remove('success', 'failure');
             updateDisplay();
+        });
+
+        function randomizeTarget(min, max) {
+            targetNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            currentNumber = 0;
+            isStudentTurn = true;
+            gameEnded = false;
+            currentNumberEl.classList.remove('success', 'failure');
+            updateDisplay();
+        }
+
+        dice1_100Btn.addEventListener('click', () => {
+            randomizeTarget(1, 100);
+        });
+
+        dice101_1000Btn.addEventListener('click', () => {
+            randomizeTarget(101, 1000);
         });
 
         updateDisplay();
