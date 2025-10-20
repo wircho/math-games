@@ -49,6 +49,10 @@ p {
     margin-bottom: 1rem;
 }
 
+ul + p {
+    margin-top: 1rem;
+}
+
 .intro {
     font-size: 1.1rem;
     margin-bottom: 2rem;
