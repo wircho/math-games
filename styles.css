@@ -224,6 +224,16 @@ footer {
     text-decoration: line-through;
 }
 
+/* Disclaimer Styles */
+.disclaimer {
+    font-size: 0.9rem;
+    color: #666;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+}
+
 /* Interactive Game Styles */
 details {
     margin: 1.5rem 0;
