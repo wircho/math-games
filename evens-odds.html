@@ -25,6 +25,47 @@
         </section>
 
         <section>
+            <h2>Interactive Version</h2>
+            <p class="disclaimer">While this interactive version lets you practice the game, these games are most valuable when played with a teacher or parent. The guidance, encouragement, and mathematical discussion that happens during play cannot be replaced by a screen. <strong>Teachers and parents are encouraged to try the interactive version as a way to familiarize themselves with the game before playing it with students.</strong></p>
+            <noscript>
+                <p style="color: #dc3545; font-weight: 600;">JavaScript is required to play this interactive game.</p>
+            </noscript>
+            <details>
+                <summary>Show Interactive Game</summary>
+                <div id="game-container">
+                    <div class="interactive-game">
+                        <div class="game-info">
+                            <div class="target-display">
+                                Target: <span id="target-number">100</span>
+                            </div>
+                            <div class="turn-display" id="turn-display">Student's turn</div>
+                        </div>
+
+                        <div id="current-number" class="circle interactive">0</div>
+
+                        <div id="game-controls" class="game-controls">
+                            <button class="game-btn student-btn add-btn" data-value="1">+1</button>
+                            <button class="game-btn student-btn add-btn" data-value="2">+2</button>
+                            <button class="game-btn student-btn add-btn" data-value="3">+3</button>
+                            <button class="game-btn student-btn add-btn" data-value="4">+4</button>
+                            <button class="game-btn student-btn add-btn" data-value="5">+5</button>
+                            <button class="game-btn student-btn add-btn" data-value="6">+6</button>
+                            <button class="game-btn student-btn add-btn" data-value="7">+7</button>
+                            <button class="game-btn student-btn add-btn" data-value="8">+8</button>
+                            <button class="game-btn student-btn add-btn" data-value="9">+9</button>
+                            <div id="teacher-controls" style="display: none; width: 100%; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                                <button class="game-btn teacher-btn" id="pass-btn">Pass</button>
+                                <button class="game-btn teacher-btn" id="divide-btn" style="display: none;">÷ 2</button>
+                            </div>
+                        </div>
+
+                        <button id="restart-btn" class="game-btn restart-btn">Restart</button>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <section>
             <h2>Examples</h2>
 
             <div class="example">
@@ -155,5 +196,98 @@
     <footer>
         <p>Adolfo Rodriguez, 2025</p>
     </footer>
+
+    <script>
+        let currentNumber = 0;
+        let targetNumber = 100;
+        let isStudentTurn = true;
+        let gameEnded = false;
+
+        const currentNumberEl = document.getElementById('current-number');
+        const targetNumberEl = document.getElementById('target-number');
+        const turnDisplayEl = document.getElementById('turn-display');
+        const teacherControls = document.getElementById('teacher-controls');
+        const passBtn = document.getElementById('pass-btn');
+        const divideBtn = document.getElementById('divide-btn');
+        const restartBtn = document.getElementById('restart-btn');
+        const addBtns = document.querySelectorAll('.add-btn');
+
+        function updateDisplay() {
+            currentNumberEl.textContent = currentNumber;
+            targetNumberEl.textContent = targetNumber;
+
+            if (gameEnded) {
+                addBtns.forEach(btn => btn.style.display = 'none');
+                teacherControls.style.display = 'none';
+            } else if (isStudentTurn) {
+                turnDisplayEl.textContent = "Student's turn";
+                addBtns.forEach(btn => btn.style.display = 'inline-block');
+                teacherControls.style.display = 'none';
+            } else {
+                turnDisplayEl.textContent = "Teacher's turn";
+                addBtns.forEach(btn => btn.style.display = 'none');
+                teacherControls.style.display = 'flex';
+
+                // Show divide button only if current number is even
+                if (currentNumber % 2 === 0) {
+                    divideBtn.style.display = 'inline-block';
+                } else {
+                    divideBtn.style.display = 'none';
+                }
+            }
+        }
+
+        function checkWinLose() {
+            if (currentNumber >= targetNumber) {
+                currentNumberEl.classList.add('success');
+                currentNumberEl.classList.remove('failure');
+                turnDisplayEl.textContent = 'Success!';
+                gameEnded = true;
+                updateDisplay();
+            }
+        }
+
+        function addNumber(value) {
+            if (gameEnded || !isStudentTurn) return;
+            currentNumber += value;
+            isStudentTurn = false;
+            updateDisplay();
+            checkWinLose();
+        }
+
+        function divideByTwo() {
+            if (gameEnded || isStudentTurn) return;
+            currentNumber = Math.floor(currentNumber / 2);
+            isStudentTurn = true;
+            updateDisplay();
+        }
+
+        function pass() {
+            if (gameEnded || isStudentTurn) return;
+            isStudentTurn = true;
+            updateDisplay();
+        }
+
+        function restart() {
+            currentNumber = 0;
+            isStudentTurn = true;
+            gameEnded = false;
+            currentNumberEl.classList.remove('success', 'failure');
+            updateDisplay();
+        }
+
+        addBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = parseInt(btn.dataset.value);
+                addNumber(value);
+            });
+        });
+
+        passBtn.addEventListener('click', pass);
+        divideBtn.addEventListener('click', divideByTwo);
+        restartBtn.addEventListener('click', restart);
+
+        updateDisplay();
+    </script>
 </body>
 </html>
