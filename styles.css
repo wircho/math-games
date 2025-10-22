@@ -233,9 +233,45 @@ footer {
 
 .coprime-table td {
     padding: 0.5rem 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid #666;
     font-weight: bold;
     font-family: "Courier New", monospace;
+    font-size: 0.75rem;
+}
+
+/* Coprime Pattern Styles (zoomed out view) */
+.coprime-pattern {
+    border-collapse: collapse;
+    margin: 1rem auto;
+}
+
+.coprime-pattern td {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #666;
+    padding: 0;
+}
+
+.coprime-pattern td.coprime {
+    background-color: #d4edda;
+}
+
+.coprime-pattern td.not-coprime {
+    background-color: #f8d7da;
+    background-image:
+        linear-gradient(45deg, transparent 45%, #dc3545 45%, #dc3545 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, #dc3545 45%, #dc3545 55%, transparent 55%);
+}
+
+.coprime-pattern td.coprime.path {
+    background-color: #28a745;
+}
+
+.coprime-pattern td.not-coprime.path {
+    background-color: #dc3545;
+    background-image:
+        linear-gradient(45deg, transparent 45%, #721c24 45%, #721c24 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, #721c24 45%, #721c24 55%, transparent 55%);
 }
 
 /* Coprime Pair Circle Styles */
