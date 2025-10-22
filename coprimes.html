@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coprimes (Snakes & Ladders Style Game) - Math Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Coprimes (Snakes & Ladders Style Game)</h1>
+    </header>
+
+    <a href="index.html" class="back-link">← Back to games</a>
+
+    <main>
+        <section>
+            <h2>How To Play</h2>
+            <p>Start at (0, 0) and set a target pair of numbers (for example, (3, 3)). Players take turns:</p>
+            <ul>
+                <li><strong>Student's turn:</strong> Add or subtract 1 to either number (keeping both numbers nonnegative)</li>
+                <li><strong>Teacher's turn:</strong> Divide both numbers by any common divisor (except by 1), or pass if no such divisor exists</li>
+            </ul>
+            <p>The student succeeds when they reach the target pair exactly.</p>
+        </section>
+
+        <section>
+            <h2>Examples</h2>
+
+            <div class="example">
+                <div class="example-title">Example: Reaching (3, 3)</div>
+                <div class="game-visual">
+                    <div class="circle-pair">(0, 0)</div>
+                    <div class="step-action">Student: (0, 0) → (0, 1)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(0, 1)</div>
+                    <div class="step-action">Student: (0, 1) → (1, 1)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(1, 1)</div>
+                    <div class="step-action">Student: (1, 1) → (1, 2)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(1, 2)</div>
+                    <div class="step-action">Student: (1, 2) → (2, 2)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(2, 2)</div>
+                    <div class="step-action teacher-divide">🐍 Teacher ÷ 2: (2, 2) → (1, 1)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(1, 1)</div>
+                    <div class="step-action">Student: (1, 1) → (1, 2)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(1, 2)</div>
+                    <div class="step-action">Student: (1, 2) → (1, 3)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(1, 3)</div>
+                    <div class="step-action">Student: (1, 3) → (2, 3)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair">(2, 3)</div>
+                    <div class="step-action">Student: (2, 3) → (3, 3)</div>
+                    <div class="arrow">↓</div>
+                    <div class="circle-pair success">(3, 3)</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>What To Expect</h2>
+            <p>The student will quickly learn that certain pairs are "safe" while others allow the teacher to divide. Landing on safe pairs lets the student make steady progress.</p>
+            <p>Helpful tip: The student can make a table and cross off pairs they want to avoid (see the cheat sheet in The Math Behind It section below for an example).</p>
+            <p>Note that (10, 10) is particularly difficult and the student can take some time to figure out.</p>
+            <details>
+                <summary>Hint for reaching (10, 10)</summary>
+                <p class="hint">You will first need to get to (1, 11).</p>
+            </details>
+        </section>
+
+        <section>
+            <h2>The Math Behind It</h2>
+            <div class="concept">
+                <p>This game teaches <strong>coprime numbers</strong> (also called "relatively prime"). Two numbers are coprime if they share no common divisors except 1.</p>
+
+                <p>The "snakes and ladders" aspect comes from the ups and downs of play: adding to the numbers moves you toward the goal, while landing on non-coprime pairs brings you back down.</p>
+
+                <p>Through repeated play, students discover which pairs are coprime by observing which ones cannot be divided. This hands-on approach helps build intuition about common divisors.</p>
+
+                <p><strong>Example cheat sheet:</strong></p>
+                <table class="coprime-table">
+                    <tr>
+                        <td class="good-number">(1, 1)</td>
+                        <td class="good-number">(1, 2)</td>
+                        <td class="good-number">(1, 3)</td>
+                        <td class="good-number">(1, 4)</td>
+                        <td class="good-number">(1, 5)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td class="good-number">(2, 1)</td>
+                        <td class="bad-number">(2, 2)</td>
+                        <td class="good-number">(2, 3)</td>
+                        <td class="bad-number">(2, 4)</td>
+                        <td class="good-number">(2, 5)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td class="good-number">(3, 1)</td>
+                        <td class="good-number">(3, 2)</td>
+                        <td class="bad-number">(3, 3)</td>
+                        <td class="good-number">(3, 4)</td>
+                        <td class="good-number">(3, 5)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td class="good-number">(4, 1)</td>
+                        <td class="bad-number">(4, 2)</td>
+                        <td class="good-number">(4, 3)</td>
+                        <td class="bad-number">(4, 4)</td>
+                        <td class="good-number">(4, 5)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td class="good-number">(5, 1)</td>
+                        <td class="good-number">(5, 2)</td>
+                        <td class="good-number">(5, 3)</td>
+                        <td class="good-number">(5, 4)</td>
+                        <td class="bad-number">(5, 5)</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>⋮</td>
+                        <td>⋮</td>
+                        <td>⋮</td>
+                        <td>⋮</td>
+                        <td>⋮</td>
+                        <td>⋱</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Adolfo Rodriguez, 2025</p>
+    </footer>
+</body>
+</html>
